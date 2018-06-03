@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Companies">
+    <Key>
+      <PropertyRef Name="companynumber" />
+    </Key>
+    <Property Name="companynumber" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Flights" Relationship="Model.FK_Flights_Companies" FromRole="Companies" ToRole="Flights" />
+    <NavigationProperty Name="Employees" Relationship="Model.FK_Employees_Companies" FromRole="Companies" ToRole="Employees" />
+    <NavigationProperty Name="Plans" Relationship="Model.FK_Plans_Companies" FromRole="Companies" ToRole="Plans" />
+  </EntityType>
+  <EntityType Name="Contacts">
+    <Key>
+      <PropertyRef Name="National_ID" />
+    </Key>
+    <Property Name="National_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="To" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="From" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employees_Phone">
+    <Key>
+      <PropertyRef Name="ssn" />
+      <PropertyRef Name="Phone" />
+    </Key>
+    <Property Name="ssn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employees" Relationship="Model.FK_Employees_Phone_Employees1" FromRole="Employees_Phone" ToRole="Employees" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityContainer Name="Flight_SystemEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Companies" EntityType="Self.Companies" />
+    <EntitySet Name="Contacts" EntityType="Self.Contacts" />
+    <EntitySet Name="Employees_Phone" EntityType="Self.Employees_Phone" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Flights" EntityType="Model.Flights" />
+    <AssociationSet Name="FK_Flights_Companies" Association="Model.FK_Flights_Companies">
+      <End Role="Companies" EntitySet="Companies" />
+      <End Role="Flights" EntitySet="Flights" />
+    </AssociationSet>
+    <EntitySet Name="Employees" EntityType="Model.Employees" />
+    <AssociationSet Name="FK_Employees_Companies" Association="Model.FK_Employees_Companies">
+      <End Role="Companies" EntitySet="Companies" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_Phone_Employees1" Association="Model.FK_Employees_Phone_Employees1">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Employees_Phone" EntitySet="Employees_Phone" />
+    </AssociationSet>
+    <EntitySet Name="Plans" EntityType="Model.Plans" />
+    <AssociationSet Name="FK_Plans_Companies" Association="Model.FK_Plans_Companies">
+      <End Role="Companies" EntitySet="Companies" />
+      <End Role="Plans" EntitySet="Plans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Plans_Employees1" Association="Model.FK_Plans_Employees1">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Plans" EntitySet="Plans" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Flights">
+    <Key>
+      <PropertyRef Name="flightnumber" />
+    </Key>
+    <Property Name="flightnumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="companynumber" Type="Int32" Nullable="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="home" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="away" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="plannumber" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Companies" Relationship="Model.FK_Flights_Companies" FromRole="Flights" ToRole="Companies" />
+  </EntityType>
+  <Association Name="FK_Flights_Companies">
+    <End Type="Model.Companies" Role="Companies" Multiplicity="1" />
+    <End Type="Model.Flights" Role="Flights" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Companies">
+        <PropertyRef Name="companynumber" />
+      </Principal>
+      <Dependent Role="Flights">
+        <PropertyRef Name="companynumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="ssn" />
+    </Key>
+    <Property Name="ssn" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="firstname" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="secondname" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="supervisor" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Birthdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="gender" Type="Boolean" Nullable="false" />
+    <Property Name="flightnumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="companynumber" Type="Int32" Nullable="false" />
+    <Property Name="position" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhotoPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Companies" Relationship="Model.FK_Employees_Companies" FromRole="Employees" ToRole="Companies" />
+    <NavigationProperty Name="Employees_Phone" Relationship="Model.FK_Employees_Phone_Employees1" FromRole="Employees" ToRole="Employees_Phone" />
+    <NavigationProperty Name="Plans" Relationship="Model.FK_Plans_Employees1" FromRole="Employees" ToRole="Plans" />
+  </EntityType>
+  <Association Name="FK_Employees_Companies">
+    <End Type="Model.Companies" Role="Companies" Multiplicity="1" />
+    <End Type="Model.Employees" Role="Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Companies">
+        <PropertyRef Name="companynumber" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="companynumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employees_Phone_Employees1">
+    <End Type="Model.Employees" Role="Employees" Multiplicity="1" />
+    <End Type="Model.Employees_Phone" Role="Employees_Phone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="ssn" />
+      </Principal>
+      <Dependent Role="Employees_Phone">
+        <PropertyRef Name="ssn" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Plans">
+    <Key>
+      <PropertyRef Name="planId" />
+    </Key>
+    <Property Name="ssn_employee" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="firstname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="lastname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="planId" Type="Int32" Nullable="false" />
+    <Property Name="chair" Type="Int32" Nullable="false" />
+    <Property Name="companynumber" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Companies" Relationship="Model.FK_Plans_Companies" FromRole="Plans" ToRole="Companies" />
+    <NavigationProperty Name="Employees" Relationship="Model.FK_Plans_Employees1" FromRole="Plans" ToRole="Employees" />
+  </EntityType>
+  <Association Name="FK_Plans_Companies">
+    <End Type="Model.Companies" Role="Companies" Multiplicity="1" />
+    <End Type="Model.Plans" Role="Plans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Companies">
+        <PropertyRef Name="companynumber" />
+      </Principal>
+      <Dependent Role="Plans">
+        <PropertyRef Name="companynumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Plans_Employees1">
+    <End Type="Model.Employees" Role="Employees" Multiplicity="1" />
+    <End Type="Model.Plans" Role="Plans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="ssn" />
+      </Principal>
+      <Dependent Role="Plans">
+        <PropertyRef Name="ssn_employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

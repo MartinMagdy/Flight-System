@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Flight_System.Models.Employees_Phone>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Contacts</h2>
+
+<p>
+    <a href="~/Employees_Phone/Create" class="btn btn-default btn-danger">Add Phone</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Employees.firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employees.secondname)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employees.firstname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employees.secondname)
+        </td>
+        <td>
+            <p>
+                @if (User.IsInRole(role: "Admin"))
+                {
+                    <a href="~/Employees_Phone/Edit/@Html.DisplayFor(Model=>item.ssn)?Phone=@Html.DisplayFor(model=>item.Phone)" class="btn btn-danger">Edit</a>
+                    <a href="~/Employees_Phone/Delete/@Html.DisplayFor(Model=>item.ssn)?Phone=@Html.DisplayFor(model=>item.Phone)" class="btn btn-danger">Delete</a>
+                }
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a href="~/Employees_Phone/Details/@Html.DisplayFor(Model=>item.ssn)?Phone=@Html.DisplayFor(model=>item.Phone)" class="btn btn-danger">Details</a>
+                }
+
+            </p>
+        </td>
+    </tr>
+}
+
+</table>

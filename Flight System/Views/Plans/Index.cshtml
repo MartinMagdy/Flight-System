@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Flight_System.Models.Plans>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Plans</h2>
+
+@if (User.IsInRole(role: "Admin"))
+{
+    <p>
+        <a href="~/Plans/Create" class="btn btn-danger">Create</a>
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            Pilote FirstName:
+        </th>
+        <th>
+            Pilote LastName:
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.chair)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Companies.name)
+        </th>
+        <th>
+            Pilote ID:
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.chair)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Companies.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employees.ssn)
+            </td>
+            <td>
+                @if (User.IsInRole(role: "Admin"))
+                {
+                    <a href="~/Plans/Edit/@Html.DisplayFor(Model=>item.planId)" class="btn btn-danger">Edit</a>
+                    <a href="~/Plans/Delete/@Html.DisplayFor(Model=>item.planId)" class="btn btn-danger">Delete</a>
+                }
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a href="~/Plans/Details/@Html.DisplayFor(Model=>item.planId)" class="btn btn-danger">Details</a>
+                }
+
+
+            </td>
+        </tr>
+    }
+
+</table>

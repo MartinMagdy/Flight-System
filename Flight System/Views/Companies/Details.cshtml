@@ -1,0 +1,65 @@
+﻿@model Flight_System.Models.Companies
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Companies</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.companynumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.companynumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Plans)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Plans.Count)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employees)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employees.Count)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Flights)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Flights.Count)
+        </dd>
+    </dl>
+</div>
+<p>
+    @if (User.IsInRole(role: "Admin"))
+    {
+        <a href="~/Companies/Edit/@Html.DisplayFor(Model=>Model.companynumber)" class="btn btn-danger">Edit</a>
+    }
+
+  
+        <a href="~/Companies/Index" class="btn btn-danger">Back</a>
+ 
+
+
+</p>

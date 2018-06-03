@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Flight_System.Models.Flights>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Flights</h2>
+@if (User.IsInRole(role: "Admin"))
+{
+    <p>
+        <a href="~/Flights/Create" class="btn btn-default btn-danger">Add Flight</a>
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.home)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.away)
+        </th>
+        <th>
+            Company:
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.home)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.away)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.plannumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Companies.name)
+            </td>
+            <td>
+                @if (User.IsInRole(role: "Admin"))
+                {
+                    <a href="~/Flights/Edit/@Html.DisplayFor(Model=>item.flightnumber)" class="btn btn-danger">Edit</a>
+                    <a href="~/Flights/Delete/@Html.DisplayFor(Model=>item.flightnumber)" class="btn btn-danger">Delete</a>
+                }
+                <a href="~/Flights/Details/@Html.DisplayFor(Model=>item.flightnumber)" class="btn btn-danger">Details</a>
+            </td>
+        </tr>
+    }
+
+</table>

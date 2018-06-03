@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Flight_SystemEntities">
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="Model.Companies">
+        <MappingFragment StoreEntitySet="Companies">
+          <ScalarProperty Name="companynumber" ColumnName="companynumber" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="Model.Contacts">
+        <MappingFragment StoreEntitySet="Contacts">
+          <ScalarProperty Name="National_ID" ColumnName="National ID" />
+          <ScalarProperty Name="To" ColumnName="To" />
+          <ScalarProperty Name="From" ColumnName="From" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees_Phone">
+      <EntityTypeMapping TypeName="Model.Employees_Phone">
+        <MappingFragment StoreEntitySet="Employees Phone">
+          <ScalarProperty Name="ssn" ColumnName="ssn" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Model.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Flights">
+      <EntityTypeMapping TypeName="Model.Flights">
+        <MappingFragment StoreEntitySet="Flights">
+          <ScalarProperty Name="plannumber" ColumnName="plannumber" />
+          <ScalarProperty Name="away" ColumnName="away" />
+          <ScalarProperty Name="home" ColumnName="home" />
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="companynumber" ColumnName="companynumber" />
+          <ScalarProperty Name="flightnumber" ColumnName="flightnumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="Model.Employees">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="companynumber" ColumnName="companynumber" />
+          <ScalarProperty Name="flightnumber" ColumnName="flightnumber" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+          <ScalarProperty Name="supervisor" ColumnName="supervisor" />
+          <ScalarProperty Name="secondname" ColumnName="secondname" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="ssn" ColumnName="ssn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Plans">
+      <EntityTypeMapping TypeName="Model.Plans">
+        <MappingFragment StoreEntitySet="Plans">
+          <ScalarProperty Name="companynumber" ColumnName="companynumber" />
+          <ScalarProperty Name="chair" ColumnName="chair" />
+          <ScalarProperty Name="planId" ColumnName="planId" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="ssn_employee" ColumnName="ssn employee" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

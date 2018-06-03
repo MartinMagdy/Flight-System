@@ -1,0 +1,249 @@
+﻿body {
+    margin: 0px;
+    width: 100%;
+    height: auto;
+    outline: 0px;
+    border: 0px;
+    min-height: 700px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    outline: 0px;
+}
+
+.navtop {
+    width: 100%;
+    height: 93px;
+    background-image: url("../Photos/HEADER.jpg");
+    margin-bottom: 200px;
+    outline: 0px;
+    z-index: 1000;
+}
+
+
+.logo {
+    margin-left: 33px;
+    float: left;
+    margin-right: 150px;
+    outline: 0px;
+}
+
+.menue {
+    width: 713px;
+    height: 93px;
+    color: white;
+    text-decoration: none;
+    text-decoration-color: white;
+    line-height: 52px;
+    text-align: right;
+    float: right;
+    margin-right: 50px;
+    font-family: Vijaya;
+    font-size: 20px;
+    outline: 0px;
+    z-index: 1000;
+}
+
+    .menue menu a {
+        color: white;
+        text-decoration: none;
+        font-family: Vijaya;
+        font-size: 20px;
+    }
+
+        .menue menu a:hover {
+            font-weight: bold;
+            text-decoration: solid;
+        }
+
+.search {
+    width: 794px;
+    height: 48px;
+    border-radius: 20px;
+    position: center center;
+    margin-top: 21px;
+    border: thin 1px black;
+    outline: 0px;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-size: large;
+    z-index: 1000;
+}
+
+.search_button {
+    height: 35px;
+    width: 33px;
+    margin-left: 750px;
+    position: relative;
+    top: -41px;
+    outline: 0px;
+}
+
+.login_button {
+    width: 80px;
+    height: 50px;
+    background-color: #A613AA;
+    text-align: center;
+    float: left;
+    z-index: 100;
+    font-family: Vijaya;
+    font-size: large;
+    color: white;
+    border-radius: 15px;
+    padding: 10px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+.regester_button {
+    width: 80px;
+    height: 50px;
+    background-color: #A613AA;
+    text-align: center;
+    float: right;
+    z-index: 100;
+    font-family: Vijaya;
+    font-size: large;
+    color: white;
+    padding: 10px;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.body {
+    width: 100%;
+    height: auto;
+    background-color: white;
+    outline: 0px;
+    min-height: 700px;
+    margin-top: 150px;
+}
+
+.social {
+    width: 100%;
+    height: 500px;
+    clear: right;
+    margin-left: 1860px;
+    position: fixed;
+    margin-top: 158px;
+    outline: 0px;
+    background-color: white;
+}
+
+
+    .social a[href] img {
+        width: 40px;
+        height: 40px;
+        clear: right;
+        outline: 0px;
+        margin-right: 40px;
+        margin-top: 5px;
+        /*position:absolute; top:3px;*/
+    }
+
+.body_nasted {
+    width: 80%;
+    height: auto;
+    min-height: 700px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    outline: 0px;
+}
+
+.footer {
+    width: 100%;
+    height: 40px;
+    background-image: url("../Photos/Signature.jpg");
+    background-position-x: right;
+    background-repeat: no-repeat;
+    border-top: solid 2px black;
+    margin-top: 65px;
+}
+
+.from_ContactUs {
+    border-radius: 7px;
+    margin-top: 100px;
+    margin-bottom: 35px;
+    height: 50px;
+    line-height: 30px;
+    outline: 0px;
+    font-size: 20px;
+    font-family: Vijaya;
+}
+
+.mailBody {
+    border-radius: 7px;
+    margin-bottom: 35px;
+    height: 250px;
+    outline: 0px;
+    font-size: 20px;
+    font-family: Vijaya;
+    text-align: left;
+    line-height: 3000px;
+}
+
+.mailBTN {
+    width: 140px;
+    height: 70px;
+    background-color: #A613AA;
+    color: white;
+    border-radius: 7px;
+    margin-bottom: 35px;
+}
+
+.subject_ContactUs {
+    border-radius: 7px;
+    margin-bottom: 35px;
+    height: 50px;
+    line-height: 30px;
+    outline: 0px;
+    font-size: 20px;
+    font-family: Vijaya;
+}
+
+.fullName_ContactUs {
+    border-radius: 7px;
+    margin-bottom: 35px;
+    height: 50px;
+    line-height: 30px;
+    outline: 0px;
+    font-size: 20px;
+    font-family: Vijaya;
+}
+.TextArea {
+    display: block;
+    width: 100%;
+    height: 400px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+}
+.logOff li a{
+    width: 80px;
+    height: 50px;
+    background-color: #A613AA;
+    text-align: center;
+    float: left;
+    z-index: 100;
+    font-family: Vijaya;
+    font-size: large;
+    color: white;
+    border-radius: 15px;
+    padding: 10px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    text-decoration:none;
+
+}
+    .logOff li a:hover {
+        font-weight: bolder;
+        text-decoration: solid;
+        background-color: #A613AA;
+    }

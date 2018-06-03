@@ -1,0 +1,57 @@
+﻿@model Flight_System.Models.Plans
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Plans</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Pilote:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.firstname)
+        </dd>
+        <dd>
+            @Html.DisplayFor(model => model.lastname)
+        </dd>
+
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.ssn_employee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ssn_employee)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.chair)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.chair)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Companies.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Companies.name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @if (User.IsInRole(role: "Admin"))
+    {
+        <a href="~/Plans/Edit/@Html.DisplayFor(Model=>Model.planId)" class="btn btn-danger">Edit</a>
+    }
+
+    <a href="~/Plans/Index" class="btn btn-danger">Back</a>
+</p>

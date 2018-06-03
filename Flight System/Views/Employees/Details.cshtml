@@ -1,0 +1,96 @@
+﻿@model Flight_System.Models.Employees
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Employees</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            Employee Photo:
+        </dt>
+        <dd>
+            <img src="~/Uploads/@Html.DisplayFor(Model=> Model.PhotoPath)" class="thumbnail" style="width:170px;height:200px;" />
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.firstname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.firstname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.secondname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.secondname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.supervisor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.supervisor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Birthdate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Birthdate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.flightnumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.flightnumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.position)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.position)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Companies.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Companies.name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @if (User.IsInRole(role: "Admin"))
+    {
+        <a href="~/Employees/Edit/@Html.DisplayFor(Model=>Model.ssn)" class="btn btn-danger">Edit</a>
+        <a href="~/Employees/Delete/@Html.DisplayFor(Model=>Model.ssn)" class="btn btn-danger">Delete</a>
+    }
+
+    <a href="~/Employees/Index" class="btn btn-danger">Back to List</a>
+</p>

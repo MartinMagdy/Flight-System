@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight System</title>
+    <link rel="icon" href="~/Photos/Body Logo.gif" />
+    <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+    <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+    <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <div class="navtop navbar-inverse navbar-fixed-top">
+        <a href="~/Flights/Index">
+            <input type="image" src="../Photos/Body Logo.gif" class="logo" />
+        </a>
+        <div class="menue">
+            <menu>
+                <a href="~/Flights/Index">Flights </a>
+                <a href="~/Companies/Index">  Companies </a>
+
+                <a href="~/Contacts/Create">  Contact us </a>
+
+                    <a href="~/Contacts/Index">  Show Mails </a>
+                    <a href="~/Employees/Index">  Employees </a>
+                <a href="~/Employees_Phone/Index">  Employees Phone </a>
+                    <a href="~/Plans/Index">  Plans </a>
+
+
+            </menu>
+        </div>
+        @using (Html.BeginForm("Search", "Home"))
+        {
+
+
+            <input type="search" class="search" name="searchname" id="searchname" />
+            <input type="image" src="~/Photos/search.jpg" class="search_button" value="Search" />
+
+        }
+    </div>
+    <div class="navtop_nasted"></div>
+    @Html.Partial("_LoginPartial")
+
+    <div class=" body  ">
+        <div class="social">
+
+            <a href="https://www.facebook.com/marten.saytara"><img src="~/Photos/facebook.png" /></a><br />
+            <a href="https://plus.google.com/u/3/116821259297273823202"><img src="~/Photos/google-plus.png" /></a><br />
+            <a href="https://github.com/MartinMagdy"><img src="~/Photos/github.png" /></a><br />
+            <a href="https://mail.google.com/mail/u/3/#inbox?compose=new"><img src="~/Photos/gmail.png" /></a><br />
+            <a href="https://www.linkedin.com/in/martin-magdy-6a9bb8ba/"><img src="~/Photos/linkedin.png" /></a><br />
+        </div>
+        <div class=" body_nasted @*container*@">
+            @RenderBody()
+        </div>
+
+        <footer class="footer"></footer>
+    </div>
+
+
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

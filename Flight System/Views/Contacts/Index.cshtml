@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Flight_System.Models.Contacts>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Today's Inbox</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.From)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subject)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Body)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.From)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Subject)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Body)
+        </td>
+        <td>
+            @if (User.IsInRole(role: "Admin"))
+            {
+                <a href="~/Contacts/Reply/@Html.DisplayFor(Model=>item.National_ID)" class="btn btn-danger">Reply</a>
+                <a href="~/Contacts/Delete/@Html.DisplayFor(Model=>item.National_ID)" class="btn btn-danger">Delete</a>
+                <a href="~/Contacts/Details/@Html.DisplayFor(Model=>item.National_ID)" class="btn btn-danger">Details</a>
+            }
+
+
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,53 @@
+﻿@model Flight_System.Models.Contacts
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Contacts</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.National_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.National_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.From)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.From)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Body)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Body)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <a href="~/Contacts/Index/@Html.DisplayFor(Model=>Model.National_ID)" class="btn btn-danger">Back</a>
+    }
+
+</p>

@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Flight_System.Models.Employees>
+@{
+    ViewBag.Title = "Search";
+}
+
+
+<div class="panel panel-default" style="padding:15px;">
+    <h1 class="panel-heading">Search Results</h1>
+    <div class="row">
+        @foreach (var SubItem in Model)
+        {
+
+            <div class="col-md-3 thumbnail" style="margin-left:25px;margin-bottom:35px;">
+                <img src="~/Uploads/@SubItem.PhotoPath" />
+                <h5>Name: </h5>
+                <h5>@Html.DisplayFor(modelItem => SubItem.firstname)</h5>
+                <h5>@Html.DisplayFor(modelItem => SubItem.secondname)</h5>
+                @Html.ActionLink("Details", "Details","Employees", new { Id = SubItem.ssn }, new { @class = "btn btn-primary" })
+            </div>
+
+        }
+    </div>
+</div>
