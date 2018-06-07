@@ -61,17 +61,16 @@
         }
 
 .search {
-    width: 794px;
+    width: 700px;
     height: 48px;
     border-radius: 20px;
-    position: center center;
-    margin-top: 21px;
     border: thin 1px black;
     outline: 0px;
     padding-left: 25px;
     padding-right: 25px;
     font-size: large;
     z-index: 1000;
+    position:relative;top:-70px;left:200px;
 }
 
 .search_button {
